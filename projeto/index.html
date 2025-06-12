@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes e Métodos em Java - Explicação e Exemplo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        .section-title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            display: inline-block;
+            width: 100%;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* Permite que as colunas quebrem para a próxima linha em telas menores */
+            gap: 20px; /* Espaço entre as colunas */
+            margin-bottom: 40px;
+        }
+        .explanation-card, .example-card {
+            flex: 1; /* Faz as colunas ocuparem o espaço disponível igualmente */
+            min-width: 300px; /* Largura mínima para evitar que fiquem muito estreitas */
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .explanation-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+        }
+        .example-card {
+            background-color: #e6ffe6;
+            border: 1px solid #a8e6a8;
+        }
+        .explanation-card:hover, .example-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        .explanation-card h3 {
+            color: #2c3e50;
+        }
+        .example-card h3 {
+            color: #28a745;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        pre {
+            background-color: #f0f0f0; /* Fundo mais escuro para o código */
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto; /* Adiciona scroll se o código for muito longo */
+            white-space: pre-wrap; /* Quebra linhas longas de código */
+            word-break: break-all;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            border: 1px solid #ddd;
+            color: #333;
+        }
+        code {
+            color: #c7254e; /* Cor para inline code */
+            background-color: #f9f2f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .example-card code {
+            color: #008000; /* Cor mais escura para código de exemplo */
+            background-color: #d1f8d1;
+        }
+
+        /* Responsividade básica */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Colunas empilham-se em telas menores */
+            }
+            .explanation-card, .example-card {
+                margin-right: 0;
+                margin-left: 0;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="section-title">Classes e Métodos em Java</h1>
+
+    <div class="container">
+        <div class="explanation-card">
+            <h3>1. Classe</h3>
+            <p>A <b>classe</b> é como uma planta ou um molde. Ela define a estrutura e o comportamento que os objetos terão. É o "tipo" que você cria.</p>
+            <p>Pense nela como a receita para fazer um bolo de chocolate: ela diz quais ingredientes (atributos) e quais passos (métodos) são necessários para fazer um bolo.</p>
+        </div>
+        <div class="example-card">
+            <h3>Exemplo (Classe Financiamento)</h3>
+            <pre><code>
+public class Financiamento { // Esta é a CLASSE "Financiamento"
+    // ... corpo da classe ...
+}
+
+public class InterfaceUsuario { // Esta é a CLASSE "InterfaceUsuario"
+    // ... corpo da classe ...
+}
+
+public class SimuladorFinanciamento { // Esta é a CLASSE "SimuladorFinanciamento" (seu Main)
+    // ... corpo da classe ...
+}
+            </code></pre>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="explanation-card">
+            <h3>2. Atributo</h3>
+            <p>Um <b>atributo</b> (ou variável de instância) é uma característica ou propriedade de um objeto da classe. Ele guarda um dado específico para cada objeto que for criado.</p>
+            <p>No exemplo do bolo, seriam os "ingredientes" como a quantidade de farinha, ovos, açúcar.</p>
+            <p>O modificador <code>private</code> antes do tipo do atributo significa que ele só pode ser acessado (lido ou modificado) de dentro da própria classe, o que ajuda no encapsulamento (proteção dos dados).</p>
+            <p>O modificador <code>final</code> indica que o valor desse atributo será definido apenas uma vez (normalmente no construtor) e não poderá ser alterado depois.</p>
+        </div>
+        <div class="example-card">
+            <h3>Exemplo (Atributos da Classe Financiamento)</h3>
+            <pre><code>
+class Financiamento {
+    private final double valorImovel;     // Atributo: guarda o valor do imóvel para este financiamento.
+    private final int prazoFinanciamento; // Atributo: guarda o prazo em anos para este financiamento.
+    private final double taxaJurosAnual;  // Atributo: guarda a taxa de juros anual para este financiamento.
+    // ...
+}
+
+class InterfaceUsuario {
+    private Scanner scanner; // Atributo: o objeto Scanner usado por esta InterfaceUsuario.
+    // ...
+}
+            </code></pre>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="explanation-card">
+            <h3>3. Construtor</h3>
+            <p>O <b>construtor</b> é um método especial que tem o mesmo nome da classe e <b>NÃO tem tipo de retorno</b> (nem mesmo <code>void</code>). Ele é chamado automaticamente quando você cria um novo objeto usando a palavra-chave <code>new</code>.</p>
+            <p>Sua função principal é inicializar os atributos do objeto recém-criado, garantindo que ele nasça em um estado válido.</p>
+            <p>Ele pega os <b>parâmetros</b> (valores que vêm de fora) e os usa para definir os <b>atributos</b> internos do objeto (usando <code>this.</code> para diferenciar).</p>
+        </div>
+        <div class="example-card">
+            <h3>Exemplo (Construtor da Classe Financiamento)</h3>
+            <pre><code>
+class Financiamento {
+    private final double valorImovel;
+    private final int prazoFinanciamento;
+    private final double taxaJurosAnual;
+
+    // CONSTRUTOR:
+    public Financiamento(double valorImovel, int prazoFinanciamento, double taxaJurosAnual) {
+        this.valorImovel = valorImovel;         // Inicializa o atributo 'valorImovel'
+        this.prazoFinanciamento = prazoFinanciamento; // Inicializa o atributo 'prazoFinanciamento'
+        this.taxaJurosAnual = taxaJurosAnual;   // Inicializa o atributo 'taxaJurosAnual'
+    }
+    // ...
+}
+
+// Como ele é chamado no método main:
+// Financiamento financiamento = new Financiamento(valorImovel, prazoFinanciamento, taxaJurosAnual);
+// 'new Financiamento(...)' chama o construtor acima.
+            </code></pre>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="explanation-card">
+            <h3>4. Método</h3>
+            <p>Um <b>método</b> é um bloco de código que executa uma tarefa específica. Ele define um comportamento ou uma ação que os objetos da classe podem realizar.</p>
+            <p>Pode receber <b>parâmetros</b> (valores de entrada) e/ou retornar um <b>valor</b>.</p>
+            <p>No exemplo do bolo, seria o "passo para assar o bolo" ou o "passo para decorar o bolo".</p>
+        </div>
+        <div class="example-card">
+            <h3>Exemplo (Métodos da Classe Financiamento e InterfaceUsuario)</h3>
+            <pre><code>
+class Financiamento {
+    // ... construtor e atributos ...
+
+    // MÉTODO: calcula o pagamento mensal. Retorna um 'double'.
+    public double calcularPagamentoMensal() {
+        return (valorImovel / (prazoFinanciamento * 12)) * (1 + (taxaJurosAnual / 12));
+    }
+
+    // MÉTODO: calcula o total do pagamento. Retorna um 'double'.
+    public double calcularTotalPagamento() {
+        return calcularPagamentoMensal() * prazoFinanciamento * 12;
+    }
+}
+
+class InterfaceUsuario {
+    // ... atributo scanner e construtor ...
+
+    // MÉTODO: pede e retorna o valor do imóvel. Não recebe parâmetros.
+    public double pedirValorImovel() {
+        System.out.print("Digite o valor do imóvel: ");
+        return scanner.nextDouble();
+    }
+
+    // MÉTODO: pede e retorna o prazo do financiamento. Não recebe parâmetros.
+    public int pedirPrazoFinanciamento() {
+        System.out.print("Digite o prazo do financiamento em anos: ");
+        return scanner.nextInt();
+    }
+
+    // MÉTODO: pede e retorna a taxa de juros. Não recebe parâmetros.
+    public double pedirTaxaJurosAnual() {
+        System.out.print("Digite a taxa de juros anual (em decimal, ex: 0.05 para 5%): ");
+        return scanner.nextDouble();
+    }
+}
+            </code></pre>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="explanation-card">
+            <h3>5. Objeto (Instância)</h3>
+            <p>Um <b>objeto</b> é uma "materialização" de uma classe. É a "coisa" concreta criada a partir da planta/molde da classe. Você pode criar vários objetos da mesma classe, e cada um terá seus próprios valores para os atributos.</p>
+            <p>No exemplo do bolo, seria o "bolo de chocolate específico" que você assou.</p>
+            <p>É criado usando a palavra-chave <code>new</code> e o construtor da classe.</p>
+        </div>
+        <div class="example-card">
+            <h3>Exemplo (Criação de Objetos no Main)</h3>
+            <pre><code>
+public class SimuladorFinanciamento {
+    public static void main(String[] args) {
+        // Cria um OBJETO da CLASSE InterfaceUsuario:
+        InterfaceUsuario interfaceUsuariovar = new InterfaceUsuario(); 
+
+        // Cria um OBJETO da CLASSE Financiamento, usando os valores lidos:
+        Financiamento financiamento = new Financiamento(valorImovel, prazoFinanciamento, taxaJurosAnual);
+    }
+}
+            </code></pre>
+        </div>
+    </div>
+
+</body>
+</html>
