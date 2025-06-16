@@ -33,7 +33,7 @@ public class InterfaceUsuario {
     public double pedirTaxaJurosAnual(){
         double taxa=-1;
         while(taxa<=0){
-        System.out.print("Digite taxa de juros anual (em decimal, ex.: 0.05 para 5%): ");
+        System.out.print("Digite taxa de juros anual (em decimal COM VÍRGULA, ex.: 00,5 para 5%): ");
         taxa=scanner.nextDouble();
         if (taxa<=0){
             System.out.println("Valor inválido, tente novamente: ");

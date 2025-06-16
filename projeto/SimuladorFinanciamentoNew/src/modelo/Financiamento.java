@@ -16,20 +16,14 @@ public class Financiamento {
             return calcularPagamentoMensal() * prazoFinanciamento * 12;
         }
         //Getters
-        public double getvalorImovel(){
+        public double getValorImovel(){
             return valorImovel;
         }  
-        public int getprazoFinanciamento(){
+        public int getPrazoFinanciamento(){
             return prazoFinanciamento;
         }  
-        public double  taxaJurosAnual(){
+        public double getTaxaJurosAnual(){
             return taxaJurosAnual;
         }
-        //mostrar dados 
-        public  void mostrarDadosBasicos() {
-        System.out.println("\nDADOS BÁSICO FINANCIAMENTO\n");
-        System.out.printf("Valor do imóvel: R$ %.2f\n", valorImovel);
-        System.out.printf("Prazo de %d anos\n", prazoFinanciamento);
-
-        }
 }
+
