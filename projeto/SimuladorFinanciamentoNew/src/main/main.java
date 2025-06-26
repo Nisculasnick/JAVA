@@ -1,7 +1,7 @@
 package main;
 
 import java.util.ArrayList;
-import modelo.Financiamento; 
+import modelo.*; 
 import util.InterfaceUsuario;
 
 public class main {
@@ -10,17 +10,27 @@ public class main {
 
         ArrayList<Financiamento> listaDeFinanciamentos = new ArrayList<>();
 
-        System.out.println("Entrada de Dados para 4 Financiamentos");
-        for (int i = 0; i < 4; i++) { 
-            System.out.printf("\nInforme os dados para o Financiamento %d:\n", i + 1);
-            double valorImovel = interfaceUsuario.pedirValorImovel();
-            int prazoFinanciamento = interfaceUsuario.pedirPrazoFinanciamento();
-            double taxaJurosAnual = interfaceUsuario.pedirTaxaJurosAnual();
+        System.out.println("Entrada de Dados para o 1° financiamento (CASA)");
+        double valorImovelUsuario = interfaceUsuario.pedirValorImovel();
+        int prazoFinanciamentoUsuario = interfaceUsuario.pedirPrazoFinanciamento();
+        double taxaJurosAnualUsuario = interfaceUsuario.pedirTaxaJurosAnual();
 
-            Financiamento financiamento = new Financiamento(valorImovel, prazoFinanciamento, taxaJurosAnual);
+        Casa primeiraCasa =new Casa(valorImovelUsuario, prazoFinanciamentoUsuario, taxaJurosAnualUsuario);
+        listaDeFinanciamentos.add(primeiraCasa);
 
-            listaDeFinanciamentos.add(financiamento);
-        }
+        System.out.println("Adicionando dados fixos");
+
+        Casa segundaCasa= new Casa(300000.0, 15,0.08);
+        listaDeFinanciamentos.add(segundaCasa);
+
+        Apartamento primeiroApartamento=new Apartamento(450000.0, 20, 0.095);
+        listaDeFinanciamentos.add(primeiroApartamento);
+
+        Apartamento segundoApartamento =new Apartamento(280000.0,10,0.07);
+        listaDeFinanciamentos.add(segundoApartamento);
+
+        Terreno terreno = new Terreno(120000.0,8,0.11);
+        listaDeFinanciamentos.add(terreno);
 
         double totalTodosImoveis = 0;
         double totalTodosFinanciamentos = 0;
