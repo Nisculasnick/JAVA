@@ -8,6 +8,7 @@ public class InterfaceUsuario {
     public InterfaceUsuario(){
         scanner = new Scanner(System.in);
     }
+
     public double pedirValorImovel(){
         double valor = -1;
         while(valor <=0){
@@ -41,5 +42,28 @@ public class InterfaceUsuario {
         }
         return taxa;
     }
+    public double pedirAreaConstruida(){
+        double area =-1;
+        while (area<=0){
+            System.out.print("Digite área (m²): ");
+            area = scanner.nextDouble();
+            if (area<=0){
+                System.out.print("Valor inválido, tente novamente: ");
+            }
+        }
+        return area;
+    }
+    public double pedirTamanhoTerreno() {
+        double terreno = -1;
+        while (terreno <= 0) {
+            System.out.print("Digite tamanho do terreno (m²) ");
+            terreno = scanner.nextDouble();
+            if (terreno <= 0) {
+                System.out.print("Valor indválido! tente novamente: ");
+            }
+        }
+        return terreno;
+    }
 }
+
 
