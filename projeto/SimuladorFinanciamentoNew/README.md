@@ -1,18 +1,57 @@
-## Getting Started
+## Simulador de Financiamento Imobiliário
+[![Java](https://img.shields.io/badge/Java-17+-blue.svg)](https://www.oracle.com/java/)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
 
-## Folder Structure
+Este projeto foi desenvolvido como ativiade acadêmica para a disciplina de POO Java da PUCPR
 
-The workspace contains two folders by default, where:
+## Funcionalidades
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- Cálculo de pagamentos mensais e totais de financiamentos
+- Validação de entradas do usuário
+- Simulação de múltiplos financiamentos simultaneamente
+- Relatório completo com totais consolidados
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Estrutura do Projeto
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+    projeto
+        |--SimuladorFinanciamentoNew
+        |--.vscode
+        |       |--setting.json
+        |--src
+        |    |--main
+        |    |    |-- Main.java
+        |    |--modelo
+        |    |    |-- Apartamento.java
+        |    |    |-- Casa.java
+        |    |    |-- Financiamento.java
+        |    |    |-- Terreno.java
+        |    |--util
+        |    |     |-- AumentoMaiorDoQueJurosException.java
+        |    |     |-- InterfaceUsuario.java
+        |--README.md
+        |--index.html
+    
+    projeto_old
+        |--SimuladorFinancimento.java
+        |--test.java
 
-## Dependency Management
+main.java: Classe Principal
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Financiamento.java: Lógica de Negócio
+
+InterfaceUsuário.java: Interação com usuário
+
+**Financiamento (modelo)**
+* `calcularPagamentoMensal()`: retorna o valor da parcela mensal
+* `calcularTotalPagamento()` : Calcula o total do financiamento
+* `mostrarDadosBasicos()`: Exibe informações resumidas
+
+**InterfaceUsuario (util)**
+* `pediUserValorImovel()`: Solicita o valor de imóvel 4
+* `pedirPrazoFinancimento()`: Obtém prazo em ano
+* `pedirTaxaJurosAnual()`: Captura taxa de juros
+
+## Contato
+Nicolas Paz - nisculasnick@gmail.com
+
+LinkedIn - [Clique Aqui](www.linkedin.com/in/nicolas-paz-a66584306)
