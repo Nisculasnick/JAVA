@@ -1,14 +1,31 @@
 package modelo;
 
-public class Casa extends Financiamento {
+import util.AumentoMaiorDoQueJurosException;
+
+import java.io.Serializable;
+
+public class Casa extends Financiamento implements Serializable {
     private double areaConstruida;
     private double tamanhoTerreno;
     
-    public Casa(double valorImovel, int prazoFinanciamento, double taxaJurosAnual, double areaConstruida, double tamanhoTerreno) {
+    public Casa(double valorImovel, int prazoFinanciamento, double taxaJurosAnual, double areaConstruida, double tamanhoTerreno){
         super(valorImovel, prazoFinanciamento, taxaJurosAnual);
         this.areaConstruida= areaConstruida;
         this.tamanhoTerreno = tamanhoTerreno;
+
+        validarJuros(valorImovel, prazoFinanciamento, taxaJurosAnual);
+
     }
+
+    private void validarJuros(double valorImovel, int prazoFinanciamento, double taxaJurosAnual) {
+
+        double jurosMensal=(valorImovel/(prazoFinanciamento*12.0))*(taxaJurosAnual/12.0);
+
+        if (80>(jurosMensal/2.0)){
+            throw new AumentoMaiorDoQueJurosException("O acreścimo de R$ 80 execede metade dos juros mensais!");
+        }
+    }
+
     //sobreescrevendo método de pagamento mensal
     @Override
     public double calcularPagamentoMensal(){

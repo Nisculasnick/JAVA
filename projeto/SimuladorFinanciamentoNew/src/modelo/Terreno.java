@@ -1,6 +1,8 @@
 package modelo;
 
-public class Terreno extends Financiamento {
+import java.io.Serializable;
+
+public class Terreno extends Financiamento implements Serializable {
     private String tipoZona;
 
     public Terreno(double valorImovel, int prazoFinanciamento, double taxaJurosAnual, String tipoZona) {

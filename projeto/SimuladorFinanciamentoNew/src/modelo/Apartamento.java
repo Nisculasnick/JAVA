@@ -1,6 +1,8 @@
 package modelo;
 
-public class Apartamento extends Financiamento {
+import java.io.Serializable;
+
+public class Apartamento extends Financiamento implements Serializable {
     private int vagasGaragem;
     private int numeroAndar;
     public Apartamento(double valorImovel, int prazoFinanciamento, double taxaJurosAnual, int vagasGaragem, int numeroAndar) {
